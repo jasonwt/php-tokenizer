@@ -6,8 +6,6 @@
     class AlphaToken extends RegexToken {
         public function __construct(string $name) {            
             parent::__construct($name, '\b[a-zA-z]+\b');
-
-            print_r($this);
         }
     }
 ?>
