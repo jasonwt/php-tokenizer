@@ -8,7 +8,12 @@
         public function __construct(string $name = "TOKENIZERTOKEN") {
             parent::__construct($name, "", "");
         }
-
+        /**
+         *
+         * @param string $str
+         *
+         * @return bool
+         */
         public function EndToken(string $str) : bool {
             if ($str != "")
                 return false;

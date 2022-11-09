@@ -1,6 +1,6 @@
 <?php
     namespace tokenizer\tokens;
-
+    
     require_once(__DIR__ . "/RegexToken.php");
 
     class WhitespaceToken extends RegexToken {

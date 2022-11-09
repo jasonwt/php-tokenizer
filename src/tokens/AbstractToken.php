@@ -15,20 +15,29 @@
 
             $this->name = $name;
         }
-
+        /**
+         *
+         * @param string $str
+         *
+         * @return null
+         */
         public function Name() : string {
             return $this->name;
         }
-
+        /**
+         *
+         * @return string
+         */
         public function ParsedString(): string {
             return $this->value;
         }
-
+        /**
+         *
+         * @return string
+         */
         public function Value() : string {
             return $this->value;
-        }
-
-        
+        }        
     }
 
 

@@ -12,7 +12,6 @@
 
     class Tokenizer implements ITokenizer {
         protected array $registeredTokens = [];
-
     	/**
          *
          * @param IToken $token
@@ -20,7 +19,6 @@
          *
          * @return bool
          */
-
         function RegisterToken(IToken $token, int $priority = 0): bool {
             $name = $token->Name();
 
@@ -46,14 +44,12 @@
 
             return true;
         }
-        
         /**
          *
          * @param string $name
          *
          * @return bool
          */
-
         function UnregisterToken(string $name): bool {
             if (($name = trim($name)) == "")
                 return false;
@@ -77,7 +73,6 @@
 
             return false;
         }
-        
         /**
          *
          * @param string $str
@@ -85,7 +80,6 @@
          *
          * @return ParentToken
          */
-        
         function Tokenize(string $str, ?ParentToken $parentToken = null): ParentToken {            
             if (is_null($parentToken))
                 $parentToken = new TokenizerToken();

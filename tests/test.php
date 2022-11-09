@@ -1,5 +1,4 @@
 <?php
-
     require_once(__DIR__ . "/../src/ITokenizer.php");
     require_once(__DIR__ . "/../src/Tokenizer.php");
 
@@ -23,7 +22,6 @@
     use tokenizer\tokens\AlphaToken;
     use tokenizer\tokens\AlphaNumericToken;
     
-
     function ExecuteTests(array $tests) {
         $executeTestResults = [
             "success" => [],

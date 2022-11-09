@@ -26,16 +26,30 @@
             $this->beginTerms = $beginTerms;
             $this->endTerms = $endTerms;
         }
-
+         /**
+         *
+         * @return array
+         */
         public function Children() : array {
             return $this->children;
         }
-
+         /**
+         *
+         * @param string $appendValue
+         *
+         * @return null
+         */
         public function NoTokenStringAppend(string $appendValue) {
             $this->noTokenString .= $appendValue;
         }
-
-        public function Hierarchy(?IToken $token = null, $indent = 0) : string {
+         /**
+         *
+         * @param IToken|null $token
+         * @param int $indent
+         *
+         * @return string
+         */
+        public function Hierarchy(?IToken $token = null, int $indent = 0) : string {
             $returnValue = "";
 
             if (is_null($token))
@@ -57,7 +71,10 @@
 
             return $returnValue;
         }
-
+        /**
+         *
+         * @return string
+         */
         public function ParsedString(): string {
             $parsedString = $this->value;
 
@@ -66,18 +83,29 @@
 
             return $parsedString . $this->EndTokenTerm();
         }        
-
+         /**
+         *
+         * @return string|null
+         */
         public function EndTokenTerm() : ?string {
             if (($endTermIndex = array_search($this->value, $this->beginTerms)) === false)
                 throw new \Exception("endTokenTerm '" . $this->value . "' not found.");
 
             return $this->endTerms[$endTermIndex];
         }
-
+         /**
+         *
+         * @return string|null
+         */
         public function BeginTokenTerm() : ?string {
             return $this->value;
         }
-
+         /**
+         *
+         * @param IToken $token
+         *
+         * @return null
+         */
         public function AddChild(IToken $token) {
             if (strlen($this->noTokenString) > 0) {
                 $this->children[] = (new UnspecifiedToken())->Tokenize($this->noTokenString);
@@ -86,7 +114,12 @@
              
             $this->children[] = $token;            
         }
-
+         /**
+         *
+         * @param string $str
+         *
+         * @return bool
+         */
         public function EndToken(string $str) : bool {
             $endTerm = $this->EndTokenTerm();
 
@@ -109,7 +142,6 @@
  
             return true;           
         }
-
     	/**
          *
          * @param string $str

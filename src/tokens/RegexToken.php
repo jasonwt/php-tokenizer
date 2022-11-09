@@ -18,15 +18,18 @@
 
             $this->regexPaterns = $regexPaterns;
         }
-
+        /**
+         *
+         * @param string $str
+         *
+         * @return IToken|null
+         */
         public function Tokenize(string $str): ?IToken { 
 
             for ($rpcnt = 0; $rpcnt < count($this->regexPaterns); $rpcnt ++) {
                 $regexPattern = $this->regexPaterns[$rpcnt];
 
-                $matches = [];            
-
-//                echo "pattern: ~" . $regexPattern . "~" . "\n";
+                $matches = [];
 
                 if ((preg_match("~^" . $regexPattern . "~", $str, $matches)) === false)
                     continue;
@@ -43,8 +46,6 @@
             $returnValue = clone($this);
 
             $returnValue->value = $matches[0];
-
-//            echo "matched pattern: " . $regexPattern . "\n";
 
             return $returnValue;
         }
