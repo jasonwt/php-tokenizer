@@ -20,6 +20,7 @@
          *
          * @return bool
          */
+
         function RegisterToken(IToken $token, int $priority = 0): bool {
             $name = $token->Name();
 
@@ -52,6 +53,7 @@
          *
          * @return bool
          */
+
         function UnregisterToken(string $name): bool {
             if (($name = trim($name)) == "")
                 return false;
@@ -83,6 +85,7 @@
          *
          * @return ParentToken
          */
+        
         function Tokenize(string $str, ?ParentToken $parentToken = null): ParentToken {            
             if (is_null($parentToken))
                 $parentToken = new TokenizerToken();
